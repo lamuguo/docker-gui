@@ -1,0 +1,38 @@
+FROM continuumio/anaconda
+RUN apt-get update -qq
+RUN apt-get install iceweasel -yq
+RUN apt-get install chromium chromium-l10n -yq
+
+RUN mkdir  ~/tmp
+RUN cd tmp
+RUN apt-get install unzip -y
+RUN wget 'https://az764295.vo.msecnd.net/public/0.10.1-release/VSCode-linux64.zip'
+RUN unzip VSCode-linux64.zip -d /usr/local/
+RUN rm ./VSCode-linux64.zip
+RUN cd /usr/local/bin
+RUN ln -s /usr/local/VSCode-linux-x64/Code vscode
+RUN chmod -R 777 /usr/local/VSCode-linux-x64
+
+RUN apt-get install libgconf2-4 -y
+#RUN apt-get install libnss3 -y
+#RUN apt-get install libXtst6 -y
+#RUN apt-get install libcanberra-gtk-module -y
+
+#failed so far with useradd
+#RUN useradd -m olivier
+
+RUN adduser olivier --gecos "First Last,RoomNumber,Workphone,HomePhone" --disabled-password
+
+#RUN export uid=olivier gid=pythondev && \
+#    mkdir -p /home/developer && \
+#    echo "developer:x:${uid}:${gid}:Developer,,,:/home/developer:/bin/bash" >> /etc/passwd && \
+#    echo "developer:x:${uid}:" >> /etc/group && \
+#    echo "developer ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/developer && \
+#    chmod 0440 /etc/sudoers.d/developer && \
+#    chown ${uid}:${gid} -R /home/developer
+RUN mkdir /app
+RUN chmod 777 /app
+
+WORKDIR /app
+#USER olivier
+CMD /usr/local/VSCode-linux-x64/Code

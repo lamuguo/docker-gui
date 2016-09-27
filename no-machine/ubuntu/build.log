@@ -1,0 +1,108 @@
+./build.sh
+Sending build context to Docker daemon 37.79 MB
+Step 1 : FROM ubuntu
+ ---> bd3d4369aebc
+Step 2 : MAINTAINER vion.remi@gmail.com
+ ---> Using cache
+ ---> 8a3795407c26
+Step 3 : RUN apt-get update -qq
+ ---> Using cache
+ ---> a6b0cbe07f73
+Step 4 : ENV DEBIAN_FRONTEND noninteractive
+ ---> Using cache
+ ---> 4f4da0089967
+Step 5 : RUN mkdir /nm
+ ---> Running in ae7b91aad86d
+ ---> 1cf3d4eaf703
+Removing intermediate container ae7b91aad86d
+Step 6 : ADD nomachine_5.1.44_1_amd64.deb /nm/nomachine_5.1.44_1_amd64.deb
+ ---> dc4e02f5e0be
+Removing intermediate container 4d59f81608c6
+Step 7 : WORKDIR /nm
+ ---> Running in 03ba605c60b1
+ ---> fc29b59b10cf
+Removing intermediate container 03ba605c60b1
+Step 8 : RUN dpkg -i /nm/nomachine_5.1.44_1_amd64.deb
+ ---> Running in 75c658d19e18
+Selecting previously unselected package nomachine.
+(Reading database ... 7256 files and directories currently installed.)
+Preparing to unpack .../nomachine_5.1.44_1_amd64.deb ...
+Unpacking nomachine (5.1.44-1) ...
+Setting up nomachine (5.1.44-1) ...
+NX> 700 Starting install at: Mon Sep 19 12:13:22 2016.
+NX> 700 Installing: nxclient version: 5.1.44.
+NX> 700 Using installation profile: Ubuntu.
+NX> 700 Install log is: /usr/NX/var/log/nxinstall.log.
+NX> 700 Cannot copy: /usr/NX/share/icons/16x16/NoMachine-icon.png to: /usr/share/icons/hicolor/16x16/apps/.
+NX> 700 Cannot copy: /usr/NX/share/icons/22x22/NoMachine-icon.png to: /usr/share/icons/hicolor/22x22/apps/.
+NX> 700 Cannot copy: /usr/NX/share/icons/32x32/NoMachine-icon.png to: /usr/share/icons/hicolor/32x32/apps/.
+NX> 700 Cannot copy: /usr/NX/share/icons/48x48/NoMachine-icon.png to: /usr/share/icons/hicolor/48x48/apps/.
+NX> 700 Cannot copy: /usr/NX/share/icons/16x16/NoMachine-desktop.png to: /usr/share/icons/hicolor/16x16/apps/.
+NX> 700 Cannot copy: /usr/NX/share/icons/22x22/NoMachine-desktop.png to: /usr/share/icons/hicolor/22x22/apps/.
+NX> 700 Cannot copy: /usr/NX/share/icons/32x32/NoMachine-desktop.png to: /usr/share/icons/hicolor/32x32/apps/.
+NX> 700 Cannot copy: /usr/NX/share/icons/48x48/NoMachine-desktop.png to: /usr/share/icons/hicolor/48x48/apps/.
+NX> 700 Cannot copy: /usr/NX/share/icons/16x16/NoMachine-recording.png to: /usr/share/icons/hicolor/16x16/apps/.
+NX> 700 Cannot copy: /usr/NX/share/icons/22x22/NoMachine-recording.png to: /usr/share/icons/hicolor/22x22/apps/.
+NX> 700 Cannot copy: /usr/NX/share/icons/32x32/NoMachine-recording.png to: /usr/share/icons/hicolor/32x32/apps/.
+NX> 700 Cannot copy: /usr/NX/share/icons/48x48/NoMachine-recording.png to: /usr/share/icons/hicolor/48x48/apps/.
+NX> 700 Cannot copy: /usr/NX/share/icons/16x16/NoMachine-service.png to: /usr/share/icons/hicolor/16x16/apps/.
+NX> 700 Cannot copy: /usr/NX/share/icons/22x22/NoMachine-service.png to: /usr/share/icons/hicolor/22x22/apps/.
+NX> 700 Cannot copy: /usr/NX/share/icons/32x32/NoMachine-service.png to: /usr/share/icons/hicolor/32x32/apps/.
+NX> 700 Cannot copy: /usr/NX/share/icons/48x48/NoMachine-service.png to: /usr/share/icons/hicolor/48x48/apps/.
+NX> 700 Compiling the USB module.
+NX> 700 Installing: nxplayer version: 5.1.44.
+NX> 700 Using installation profile: Ubuntu.
+NX> 700 Install log is: /usr/NX/var/log/nxinstall.log.
+NX> 700 To connect the remote printer to the local desktop,
+NX> 700 the user account must be a member of the CUPS System Group..
+NX> 700 Player install completed with warnings.
+NX> 700 Please review the install log for details.
+NX> 700 Installing: nxnode version: 5.1.44.
+NX> 700 Using installation profile: Ubuntu.
+NX> 700 Install log is: /usr/NX/var/log/nxinstall.log.
+NX> 700 Creating configuration in: /usr/NX/etc/node.cfg.
+NX> 700 Displaying file: /usr/NX/share/documents/node/cups-info
+
+  CUPS Printing Backend
+
+  The  NoMachine Node  setup procedure could not detect your
+  CUPS installation: either  CUPS  is not installed on  your
+  system or it was installed in a non-standard path. CUPS is
+  needed  in order to  enable  printing  support  in your NX
+  system.
+  Please note that you can enable  printing support for your
+  NX system at any time; to do this make sure  that you have
+  CUPS installed then run:
+
+    /usr/NX/scripts/setup/nxnode --printingsetup <pathname>
+
+  to specify the location of the CUPS root path.
+
+NX> 700 Displaying file: /usr/NX/share/documents/node/pulseaudio-info
+
+  PulseAudio Backend
+
+  The NoMachine  setup procedure  could not  detect  your  PulseAudio
+  installation:  either  PulseAudio is not  installed  on your system
+  or it was  installed  in a non-standard path.  If PulseAudio is not
+  available, NoMachine audio support will try to rely on ALSA device.
+  Please note  that you can enable  PulseAudio  support  at any time;
+  to do this  make sure that you have PulseAudio installed, then run:
+
+    /usr/NX/scripts/setup/nxnode --audiosetup <path>
+
+  to specify the location of the PulseAudio configuration files.
+NX> 700 Installing: nxserver version: 5.1.44.
+NX> 700 Using installation profile: Ubuntu.
+NX> 700 Install log is: /usr/NX/var/log/nxinstall.log.
+NX> 700 Creating configuration in: /usr/NX/etc/server.cfg.
+NX> 700 Install completed at: Mon Sep 19 12:13:34 2016.
+NX> 700 NoMachine was configured to run the following services:
+NX> 700 NX service on port: 4000
+ ---> 11cba68138cf
+Removing intermediate container 75c658d19e18
+Step 9 : CMD bash
+ ---> Running in 9253ecc557e4
+ ---> 28a248a9c0fc
+Removing intermediate container 9253ecc557e4
+Successfully built 28a248a9c0fc
