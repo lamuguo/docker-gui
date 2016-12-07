@@ -9,8 +9,10 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get install x2goserver x2goserver-xsession -y
 RUN apt-get install xdm xfce4 xfonts-base xserver-xorg -y
 
-RUN service ssh start
-RUN service x2goserver start
-CMD bash
+# Add a user with a stupid password, can be improved.
+RUN useradd -ms /bin/bash test && \
+    echo "test:test123" | chpasswd
 
-CMD bash
+ADD start-x2go.sh /
+ENTRYPOINT "/start-x2go.sh"
+
